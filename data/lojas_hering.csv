@@ -1,0 +1,126 @@
+ID_FILIAL,LOJA,PONTO_VENDA_COD,PONTO_VENDA,PUBLICO_LOJA,CANAL,CIDADE,LOJA_M2,PAIS,UF,CLIMA,STATUS
+10115,Loja Ipanema,214,214:Rua Visconde De Piraja - Ipanema,A,Lojas,RIO DE JANEIRO,129,BR,RJ,Quente,INACTIVE
+10392,Puc Shopping Garten,370,370:Joinville Garten Shopping,AB,Lojas,JOINVILLE,44,BR,SC,Fria,INACTIVE
+10119,Loja Av Brasil Camboriu,219,219:Avenida Brasil - Balneario,B,Lojas,BALNEARIO CAMBORIU,176,BR,SC,Fria,ACTIVE
+10543,Hs Park Sao Caetano,518,518:Parkshopping Sao Caetano,B,Lojas,SAO CAETANO DO SUL,549,BR,SP,Fria,ACTIVE
+10116,Loja Quitanda,212,212:Rua Da Quitanda,AB,Lojas,RIO DE JANEIRO,151,BR,RJ,Quente,INACTIVE
+10715,Kids Garten Shopping,718,718:Joinville Garten Shopping,AB,Lojas,JOINVILLE,54,BR,SC,Fria,INACTIVE
+10182,Shopping Paladium,233,233:Palladium Shopping Center,B,Lojas,CURITIBA,209,BR,PR,Fria,ACTIVE
+10387,Shopping Garten,369,369:Joinville Garten Shopping,B,Lojas,JOINVILLE,230,BR,SC,Fria,ACTIVE
+10284,Shopping Salvador,110,110:Salvador Shopping,B,Lojas,SALVADOR,115,BR,BA,Quente,INACTIVE
+10407,Loja Internet Dzarm,,,,Lojas,,0,BR,,Quente,INACTIVE
+11385,Hs Brasilia Shop,126,126:Brasilia Shopping,B,Lojas,BRASILIA,111,BR,DF,Quente,ACTIVE
+10124,Puc Shopping Mueller,222,222:Shopping Mueller,AB,Lojas,,68,BR,,Quente,INACTIVE
+10466,Shopping Granja Vianna,431,431:Shopping Granja Viana,B,Lojas,COTIA,115,BR,SP,Fria,INACTIVE
+11384,Hs Boulevard Shop Bh,413,413:Boulevard Shopping - Belo Horizonte,B,Lojas,BELO HORIZONTE,118,BR,MG,Quente,ACTIVE
+10582,Puc Iguatemi Flp,195,195:Shopping Iguatemi Santa Monica,AB,Lojas,FLORIANOPOLIS,33,BR,SC,Fria,INACTIVE
+10708,Hk Shopping Mueller,677,677:Shopping Mueller - Joinville,AB,Lojas,JOINVILLE,68,BR,SC,Fria,INACTIVE
+10480,Dzarm Analia Franco,,,,Lojas,,0,BR,,Quente,INACTIVE
+10113,Shopping Santana Parque,205,205:Santana Parque Shopping,B,Lojas,SAO PAULO,81,BR,SP,Fria,INACTIVE
+10213,Shopping Tijuca - Rj,261,261:Shopping Tijuca,B,Lojas,RIO DE JANEIRO,123,BR,RJ,Quente,ACTIVE
+11076,Hs Continental,33,33:Shopping Continental,B,Lojas,SAO PAULO,255,BR,SP,Fria,INACTIVE
+10817,Hk Iguatemi Ba,802,802:Shopping Da Bahia,AB,Lojas,SALVADOR,54,BR,BA,Quente,INACTIVE
+10482,Iguatemi Alphaville,462,462:Shopping Iguatemi Alphaville,AB,Lojas,BARUERI,114,BR,SP,Fria,INACTIVE
+10870,Hs Iguatemi Campinas,56,56:Shopping Iguatemi Campinas,B,Lojas,CAMPINAS,235,BR,SP,Fria,ACTIVE
+11285,Hs Shopping Patio Brasil,124,124:Shopping Patio Brasil,B,Lojas,BRASILIA,155,BR,DF,Quente,ACTIVE
+10884,Loja Parnamirim,,,,Lojas,PARNAMIRIM,1,BR,RN,Quente,INACTIVE
+10357,Puc Shopping Morumbi,164,164:Shopping Morumbi,AB,Lojas,SAO PAULO,68,BR,SP,Fria,INACTIVE
+10322,Shopping Paralela - Hs,314,314:Shopping Paralela,AB,Lojas,SALVADOR,81,BR,BA,Quente,INACTIVE
+10909,Hs Metropolitano Barra,869,869:Shopping Metropolitano Barra,B,Lojas,RIO DE JANEIRO,226,BR,RJ,Quente,INACTIVE
+11229,Hk Praia De Belas,946,946:Shopping Praia De Belas,AB,Lojas,PORTO ALEGRE,47,BR,RS,Fria,INACTIVE
+10530,Hering Store Park Europeu,537,537:Shopping Park Europeu,AB,Lojas,BLUMENAU,156,BR,SC,Fria,INACTIVE
+10983,For You Cidade Sao Paulo,902,902:Shopping Cidade Sao Paulo,AB,Lojas,,1,BR,,Quente,INACTIVE
+11635,Dzarm Ibirapuera,1235,1235:Shopping Ibirapuera Dzarm,B,Lojas,SAO PAULO,52,BR,SP,Fria,ACTIVE
+10698,Puc Shopping Vila Olimpia,352,352:Shopping Vila Olímpia,AB,Lojas,SAO PAULO,36,BR,SP,Fria,INACTIVE
+10010,Shopping Analia Franco,16,16:Shopping Analia Franco,B,Lojas,,45,BR,,Quente,INACTIVE
+11126,Hs Analia Franco,16,16:Shopping Analia Franco,B,Lojas,SAO PAULO,344,BR,SP,Fria,ACTIVE
+10007,Shopping Higienopolis,4,4:Shopping Higienopolis,B,Lojas,SAO PAULO,171,BR,SP,Fria,ACTIVE
+10770,Hk Iguatemi Florianopolis,729,729:Shopping Iguatemi Florianopolis,AB,Lojas,FLORIANOPOLIS,73,BR,SC,Fria,INACTIVE
+10190,Shopping Taboao Da Serra,245,245:Shopping Taboao,C,Lojas,TABOAO DA SERRA,145,BR,SP,Fria,INACTIVE
+10981,Hs Villa Lobos,36,36:Shopping Villa Lobos,B,Lojas,SAO PAULO,272,BR,SP,Fria,ACTIVE
+11025,Hering Store Bh Shopping,442,442:Bh Shopping,B,Lojas,BELO HORIZONTE,286,BR,MG,Quente,ACTIVE
+10219,Shopping Nova America,82,82:Shopping Nova America,AB,Lojas,RIO DE JANEIRO,171,BR,RJ,Quente,INACTIVE
+10220,Shopping Iguatemi - Ba,111,111:Shopping Da Bahia,B,Lojas,SALVADOR,137,BR,BA,Quente,INACTIVE
+10012,Shopping Muller,150,150:Shopping Mueller - Joinville,C,Lojas,JOINVILLE,163,BR,SC,Fria,ACTIVE
+10197,Shopping Penha,257,257:Shopping Penha,C,Lojas,SAO PAULO,70,BR,SP,Fria,INACTIVE
+10108,Shopping Baln Camboriu,220,220:Balneario Camboriu Shopping,B,Lojas,BALNEARIO CAMBORIU,121,BR,SC,Fria,ACTIVE
+10009,Shopping Center Norte,392,392:Shopping Center Norte,B,Lojas,SAO PAULO,318,BR,SP,Fria,ACTIVE
+10101,Shopping Norte - Rj,199,199:Norte Shopping - Rio De Janeiro,B,Lojas,RIO DE JANEIRO,434,BR,RJ,Quente,ACTIVE
+11695,Mega Store Ipanema,214,214:Rua Visconde De Piraja - Ipanema,A,Lojas,RIO DE JANEIRO,340,BR,RJ,Quente,ACTIVE
+11088,Hs Bourbon Shopping Spo,234,234:Bourbon Shopping Pompeia,B,Lojas,SAO PAULO,218,BR,SP,Fria,ACTIVE
+11316,Puc Morumbi Town,,,,Lojas,,0,BR,,Quente,INACTIVE
+11070,Hk Cidade Sao Paulo,940,940:Shopping Cidade Sao Paulo,AB,Lojas,SAO PAULO,70,BR,SP,Fria,INACTIVE
+10709,Hs Shopping Batel,739,739:Shopping Center Patio Batel,A,Lojas,CURITIBA,46,BR,PR,Fria,ACTIVE
+11230,Hk Iguatemi Poa,761,761:Shopping Iguatemi Porto Alegre,AB,Lojas,PORTO ALEGRE,29,BR,RS,Fria,INACTIVE
+11363,Hs Del Rey Shopping,101,101:Shopping Del Rey,B,Lojas,BELO HORIZONTE,122,BR,MG,Quente,ACTIVE
+10945,For You Center Norte,879,879:Shopping Center Norte,AB,Lojas,,1,BR,,Quente,INACTIVE
+10162,Hering Ilha Plaza,239,239:Ilha Plaza Shopping,C,Lojas,RIO DE JANEIRO,122,BR,RJ,Quente,INACTIVE
+10355,Loja Internet Puc,,,,Lojas,,0,BR,,Quente,INACTIVE
+11103,Hs Shop Eldorado,34,34:Shopping Eldorado,B,Lojas,SAO PAULO,547,BR,SP,Fria,ACTIVE
+10106,Shopping Market Place,25,25:Shopping Market Place,AB,Lojas,SAO PAULO,120,BR,SP,Fria,INACTIVE
+10014,Outlet Blumenau,1,1:Espaço Hering - Blumenau,C,Lojas,BLUMENAU,679,BR,SC,Fria,ACTIVE
+10531,Hering Store Iguatemi Jk,591,591:Shopping Jk Iguatemi,A,Lojas,SAO PAULO,128,BR,SP,Fria,ACTIVE
+11265,Hs Iguatemi Fortaleza,119,119:Shopping Iguatemi Fortaleza,B,Lojas,FORTALEZA,97,BR,CE,Quente,INACTIVE
+10023,Shopping Butanta,37,37:Shopping Butanta,B,Lojas,SAO PAULO,162,BR,SP,Fria,INACTIVE
+10991,Dzarm Higienopolis,909,909:Shopping Higienopolis,AB,Lojas,SAO PAULO,60,BR,SP,Fria,INACTIVE
+10003,Loja Beiramar,145,145:Beiramar Shopping,B,Lojas,FLORIANOPOLIS,109,BR,SC,Fria,ACTIVE
+10639,Hs Continente Park,628,628:Continente Park Shopping,C,Lojas,SAO JOSE,215,BR,SC,Fria,INACTIVE
+10542,Kids Interlagos,517,517:Shopping Interlagos,AB,Lojas,SAO PAULO,77,BR,SP,Fria,INACTIVE
+10484,Bnu Norte Shop Kids,474,474:Blumenau Norte Shopping,AB,Lojas,BLUMENAU,38,BR,SC,Fria,INACTIVE
+10483,Blumenau Norte Shopping,472,472:Blumenau Norte Shopping,AB,Lojas,BLUMENAU,231,BR,SC,Fria,INACTIVE
+11271,Loja Slmb,1271,1271:Boavista Shopping - Santo Amaro,C,Lojas,SAO LUIS DE MONTES BELOS,0,BR,GO,Quente,ACTIVE
+10891,For You Morumbi,840,840:Shopping Morumbi,AB,Lojas,,1,BR,,Quente,INACTIVE
+10114,Shopping Aricanduva,206,206:Shopping Aricanduva,C,Lojas,SAO PAULO,247,BR,SP,Fria,ACTIVE
+10208,Puc Shop Baln Camboriu,288,288:Balneario Camboriu Shopping,AB,Lojas,BALNEARIO CAMBORIU,44,BR,SC,Fria,INACTIVE
+10102,Shopping Rio Design,86,86:Shopping Rio Design Barra,AB,Lojas,RIO DE JANEIRO,72,BR,RJ,Quente,INACTIVE
+11005,Puc Batel,740,740:Shopping Center Patio Batel,AB,Lojas,CURITIBA,28,BR,PR,Fria,INACTIVE
+11020,Dzarm Eldorado,927,927:Shopping Eldorado,AB,Lojas,SAO PAULO,56,BR,SP,Fria,INACTIVE
+10871,Hs Parque Dom Pedro,57,57:Shopping Parque Dom Pedro,B,Lojas,CAMPINAS,564,BR,SP,Fria,ACTIVE
+11286,Hs Park Shopping Brasilia,127,127:Park Shopping,B,Lojas,BRASILIA,144,BR,DF,Quente,ACTIVE
+11063,Hk Shopping Morumbi,939,939:Shopping Morumbi,AB,Lojas,SAO PAULO,94,BR,SP,Fria,INACTIVE
+11362,Hs Minas Shopping,102,102:Minas Shopping,C,Lojas,BELO HORIZONTE,94,BR,MG,Quente,ACTIVE
+10198,Shopping Itaquera,264,264:Sh Metro Itaquera,C,Lojas,SAO PAULO,91,BR,SP,Fria,ACTIVE
+11287,Hs Conjunto Nacional,123,123:Conjunto Nacional,B,Lojas,BRASILIA,121,BR,DF,Quente,ACTIVE
+10013,Shopping Neumarkt,149,149:Shopping Neumarkt,B,Lojas,BLUMENAU,169,BR,SC,Fria,ACTIVE
+11080,Hs Praiamar,48,48:Shopping Praiamar,B,Lojas,SANTOS,277,BR,SP,Fria,ACTIVE
+10218,Shopping Barra - Rj,84,84:Barra Shopping,B,Lojas,RIO DE JANEIRO,353,BR,RJ,Quente,ACTIVE
+10875,Hs Aeroporto Guarulhos,368,368:Aeroporto Internacional Guarulhos,AB,Lojas,GUARULHOS,46,BR,SP,Fria,INACTIVE
+10478,Hering Kids Butantã,441,441:Shopping Butantã,AB,Lojas,SAO PAULO,49,BR,SP,Fria,INACTIVE
+10092,Puc Shopping Neumarkt,196,196:Shopping Neumarkt,AB,Lojas,BLUMENAU,34,BR,SC,Fria,INACTIVE
+11697,Meli Full Sp,,,,Lojas,SAO PAULO,0,BR,SP,Fria,ACTIVE
+11466,Hs Mooca Plaza Shop,531,531:Mooca Plaza Shopping,B,Lojas,SAO PAULO,513,BR,SP,Fria,ACTIVE
+10852,Hs Morumbi,29,29:Shopping Morumbi,B,Lojas,SAO PAULO,471,BR,SP,Fria,ACTIVE
+10256,Shopping Grande Rio,294,294:Shopping Grande Rio,AB,Lojas,SAO JOAO DE MERITI,115,BR,RJ,Quente,INACTIVE
+10586,Hs Cidade Jardim,371,371:Shopping Cidade Jardim,A,Lojas,SAO PAULO,65,BR,SP,Fria,ACTIVE
+10117,Shopping Guarulhos,209,209:Internacional Shopping Guarulhos,B,Lojas,GUARULHOS,220,BR,SP,Fria,ACTIVE
+10694,Hk Shopping Vila Olimpia,672,672:Shopping Vila Olimpia,AB,Lojas,SAO PAULO,47,BR,SP,Fria,INACTIVE
+11577,Hs Park Shop Jacarepagua,1201,1201:Park Shopping Jacarepagua,B,Lojas,RIO DE JANEIRO,125,BR,RJ,Quente,ACTIVE
+11626,Hs Shopping Recife,113,113:Shopping Center Recife,B,Lojas,RECIFE,382,BR,PE,Quente,ACTIVE
+11248,Hs Riomar Fortaleza,848,848:Riomar Fortaleza,B,Lojas,FORTALEZA,120,BR,CE,Quente,INACTIVE
+11195,Puc Bourbon Shopping,235,235:Shopping Bourbon Pompeia,AB,Lojas,SAO PAULO,37,BR,SP,Fria,INACTIVE
+11288,Hs Metropole Shopping,568,568:Avenida Araucaria,B,Lojas,BRASILIA,188,BR,DF,Quente,ACTIVE
+11137,Hs Metro Tatuape,15,15:Shopping Metro Tatuape,C,Lojas,SAO PAULO,159,BR,SP,Fria,ACTIVE
+10107,Shopping Estacao,216,216:Shopping Estacao,B,Lojas,CURITIBA,179,BR,PR,Fria,ACTIVE
+11317,Puc Shopping Morumbi Town,1036,1036:Shopping Morumbi Town,AB,Lojas,SAO PAULO,80,BR,SP,Fria,INACTIVE
+10475,Hering Kids Analia Franco,447,447:Shopping Analia Franco,AB,Lojas,SAO PAULO,31,BR,SP,Fria,INACTIVE
+10093,Shopping Iguatemi,146,146:Shopping Iguatemi Florianopolis,B,Lojas,FLORIANOPOLIS,146,BR,SC,Fria,ACTIVE
+11539,Rtm Santana Business,1189,1189:Santana Business Park,AB,Lojas,SANTANA DE PARNAIBA,80,BR,SP,Fria,ACTIVE
+10529,Kids Ibirapuera,498,498:Shopping Ibirapuera,AB,Lojas,SAO PAULO,52,BR,SP,Fria,INACTIVE
+11089,Hs Esplanada Shopping Spo,75,75:Esplanada Shopping,B,Lojas,SOROCABA,483,BR,SP,Fria,ACTIVE
+10125,Loja Av. Paulista,232,232:Avenida Paulista,B,Lojas,SAO PAULO,144,BR,SP,Fria,ACTIVE
+10210,Puc Shopping Estacao,266,266:Shopping Estacao,AB,Lojas,CURITIBA,33,BR,PR,Fria,INACTIVE
+10011,Shopping Tambore,42,42:Shopping Tambore,B,Lojas,BARUERI,685,BR,SP,Fria,ACTIVE
+10725,Kids Continente Park Shop,688,688:Continente Park Shopping,AB,Lojas,SAO JOSE,42,BR,SC,Fria,INACTIVE
+11404,Dzarm Shop Center Norte,1115,1115:Shopping Center Norte,B,Lojas,SAO PAULO,82,BR,SP,Fria,ACTIVE
+11470,Dzarm Morumbi,1146,1146:Shopping Morumbi,B,Lojas,SAO PAULO,70,BR,SP,Fria,ACTIVE
+11369,Hs Shopping Cidade Bh,200,200:Shopping Cidade - Belo Horizonte,B,Lojas,BELO HORIZONTE,135,BR,MG,Quente,ACTIVE
+10008,Shopping Ibirapuera,17,17:Shopping Ibirapuera,B,Lojas,SAO PAULO,177,BR,SP,Fria,ACTIVE
+11023,Hs Shopping Savassi,97,97:Shopping Patio Savassi,B,Lojas,BELO HORIZONTE,109,BR,MG,Quente,ACTIVE
+11066,Hk Center Norte,941,941:Shopping Center Norte,AB,Lojas,SAO PAULO,81,BR,SP,Fria,INACTIVE
+10207,Shopping Osasco,328,328:Shopping União De Osasco,B,Lojas,OSASCO,407,BR,SP,Fria,ACTIVE
+11136,Hs Boulevard Tatuape,273,273:Sh Metro Boulevard Tatuape,C,Lojas,SAO PAULO,232,BR,SP,Fria,ACTIVE
+10025,Shopping Interlagos,28,28:Shopping Interlagos,C,Lojas,SAO PAULO,151,BR,SP,Fria,ACTIVE
+10209,Loja Xv De Novembro,260,260:Rua Xv De Novembro - Curitiba,C,Lojas,CURITIBA,202,BR,PR,Fria,ACTIVE
+11167,Puc Shopping Dom Pedro,171,171:Shopping Parque Dom Pedro,AB,Lojas,CAMPINAS,48,BR,SP,Fria,INACTIVE
+11168,Puc Shopping Eldorado,166,166:Shopping Eldorado,AB,Lojas,SAO PAULO,37,BR,SP,Fria,INACTIVE
+10103,Shopping Diamond Mall,98,98:Diamond Mall,B,Lojas,BELO HORIZONTE,174,BR,MG,Quente,INACTIVE

@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "grupo-soma-test"
+version = "0.1.0"
+description = ""
+authors = ["Deivison isidoro <deivisonisidoro@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.2.3"
+google-cloud-bigquery = "^3.27.0"
+sqlalchemy = "^2.0.36"
+pyarrow = "^18.1.0"
+fastparquet = "^2024.11.0"
+pydotenv = "^0.0.7"
+python-dotenv = "^1.0.1"
+psycopg2 = "^2.9.10"
+psycopg2-binary = "^2.9.10"
+matplotlib = "^3.9.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-mock = "^3.14.0"
+black = "^24.10.0"
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+pre-commit = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
