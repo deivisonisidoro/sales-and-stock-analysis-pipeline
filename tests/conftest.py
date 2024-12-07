@@ -10,16 +10,13 @@ from tests.config.settings import TEST_DATABASE_CONFIG
 @pytest.fixture(scope="function")
 def setup_test_database() -> Generator[dict[str, str], None, None]:
     """
-    Fixture para configurar e desmontar um banco de dados de teste para testes de integração.
+    Fixture to setup and teardown a test database for integration tests.
 
-    Estabelece uma conexão com o servidor PostgreSQL, cria um banco de dados de teste,
-    e o desmonta após a execução do teste.
+    Yields:
+        dict: Test database configuration.
 
-    Yield:
-        Generator[dict[str, str], None, None]: Configuração do banco de dados de teste.
-
-    Exceções:
-        pytest.fail: Se o processo de configuração do banco de dados encontrar um OperationalError.
+    Exceptions:
+        pytest.fail: If the database setup encounters an OperationalError.
     """
     admin_connection: psycopg2.extensions.connection | None = None
     cursor: psycopg2.extensions.cursor | None = None
@@ -33,10 +30,20 @@ def setup_test_database() -> Generator[dict[str, str], None, None]:
         )
         admin_connection.autocommit = True
         cursor = admin_connection.cursor()
+
+        # Terminate active connections to the database if any
+        cursor.execute(
+            "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = %s",
+            (TEST_DATABASE_CONFIG["dbname"],),
+        )
+
+        # Drop the database if it exists and create a new one
+        cursor.execute(SQL("DROP DATABASE IF EXISTS {}").format(Identifier(TEST_DATABASE_CONFIG["dbname"])))
         cursor.execute(SQL("CREATE DATABASE {}").format(Identifier(TEST_DATABASE_CONFIG["dbname"])))
         yield TEST_DATABASE_CONFIG
+
     except psycopg2.OperationalError as e:
-        pytest.fail(f"Falha na configuração do banco de dados: {e}")
+        pytest.fail(f"Database setup failed: {e}")
     finally:
         if cursor:
             cursor.close()
@@ -47,4 +54,3 @@ def setup_test_database() -> Generator[dict[str, str], None, None]:
                 SQL("DROP DATABASE IF EXISTS {}").format(Identifier(TEST_DATABASE_CONFIG["dbname"]))
             )
             drop_connection.close()
-            admin_connection.close()

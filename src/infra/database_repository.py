@@ -73,5 +73,6 @@ class DatabaseRepository(DatabaseRepositoryInterface):
         except Exception as e:
             DatabaseConnection.connection.rollback()
             print(f"Erro ao carregar dados na tabela {table_name}: {e}")
+            raise Exception("Erro ao carregar dados na tabela") from e
         finally:
             cursor.close()
