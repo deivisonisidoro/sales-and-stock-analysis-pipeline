@@ -1,5 +1,4 @@
 from tarfile import ExtractError
-from unittest.mock import MagicMock
 
 import pytest
 
@@ -9,51 +8,51 @@ from src.stages.extract.extract_data import ExtractData
 
 
 @pytest.fixture
-def mock_dataloader() -> MagicMock:
-    """Fixture para um DataLoader simulado."""
-    mock = MagicMock(spec=DataLoaderInterface)
-    return mock
+def mock_dataloader(mocker):
+    """
+    Fixture para criar um mock de DataLoaderInterface.
+    """
+    return mocker.MagicMock(spec=DataLoaderInterface)
 
 
-def test_extract_data_success(mock_dataloader: MagicMock) -> None:
-    """Teste para verificar a extração bem-sucedida dos dados."""
+def test_extract_success(mock_dataloader):
+    """
+    Testa o comportamento do método extract em caso de sucesso.
+    """
 
     mock_data = {
-        "stock": "mock_stock_data",
-        "store": "mock_store_data",
-        "products": "mock_products_data",
-        "sales": "mock_sales_data",
+        "sales": [{"id": 1, "value": 100}],
+        "stock": [{"id": 1, "quantity": 50}],
+        "store": {"id": 1, "name": "Loja Teste"},
+        "products": [{"id": 1, "name": "Produto Teste"}],
     }
-
     mock_dataloader.extract_all.return_value = mock_data
 
-    extract_data_service = ExtractData(dataloader=mock_dataloader)
+    service = ExtractData(mock_dataloader)
 
-    result = extract_data_service.extract()
+    result = service.extract()
 
     assert isinstance(result, ExtractContract)
+    assert result.sales == mock_data["sales"]
+    assert result.stock == mock_data["stock"]
+    assert result.store == mock_data["store"]
+    assert result.products == mock_data["products"]
 
-    assert result.data == mock_data
-
-
-def test_extract_data_error(mock_dataloader: MagicMock) -> None:
-    """Teste para verificar se a exceção ExtractError é levantada em caso de falha."""
-
-    mock_dataloader.extract_all.side_effect = Exception("Erro durante a extração de dados")
-
-    extract_data_service = ExtractData(dataloader=mock_dataloader)
-
-    with pytest.raises(ExtractError, match="Erro durante a extração de dados"):
-        extract_data_service.extract()
+    mock_dataloader.extract_all.assert_called_once()
 
 
-def test_extract_data_empty(mock_dataloader: MagicMock) -> None:
-    """Teste para verificar o comportamento quando o DataLoader retorna dados vazios."""
+def test_extract_failure(mock_dataloader):
+    """
+    Testa o comportamento do método extract quando ocorre uma exceção.
+    """
 
-    mock_dataloader.extract_all.return_value = {}
+    mock_dataloader.extract_all.side_effect = Exception("Erro ao extrair dados")
 
-    extract_data_service = ExtractData(dataloader=mock_dataloader)
+    service = ExtractData(mock_dataloader)
 
-    result = extract_data_service.extract()
+    with pytest.raises(ExtractError) as exc_info:
+        service.extract()
 
-    assert result.data == {}
+    assert "Erro ao extrair dados" in str(exc_info.value)
+
+    mock_dataloader.extract_all.assert_called_once()

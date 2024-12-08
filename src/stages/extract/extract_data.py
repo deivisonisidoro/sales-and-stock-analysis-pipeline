@@ -41,7 +41,10 @@ class ExtractData:
             data = self.__dataloader.extract_all()
 
             return ExtractContract(
-                data=data,
+                sales=data.get("sales"),
+                stock=data.get("stock"),
+                store=data.get("store"),
+                products=data.get("products"),
             )
         except Exception as exception:
             raise ExtractError(str(exception)) from exception

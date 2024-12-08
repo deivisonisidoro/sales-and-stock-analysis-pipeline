@@ -1,13 +1,21 @@
 from dataclasses import dataclass
-from typing import Dict
 
 from pandas import DataFrame
 
 
 @dataclass
 class ExtractContract:
-    """
-    Contrato que representa o resultado do processo de extração.
+    """Contrato de extração de dados.
+
+    Contém os dados extraídos de vendas e de estoque a serem transformados.
+
+    Attributes:
+        sales_data (DataFrame): Dados de vendas extraídos.
+        stock_data (DataFrame): Dados de estoque extraídos.
+        products (DataFrame): Dados de produtos extraídos.
     """
 
-    data: Dict[str, DataFrame]
+    sales: DataFrame
+    stock: DataFrame
+    store: DataFrame
+    products: DataFrame
