@@ -2,7 +2,7 @@ import pandas as pd
 import pytest
 
 from src.stages.contracts.extract_contract import ExtractContract
-from src.stages.contracts.transform_data import TransformContract
+from src.stages.contracts.transform_contract import TransformContract
 from src.stages.transform.transform_data import TransformData
 
 

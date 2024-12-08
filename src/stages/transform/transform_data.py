@@ -1,7 +1,7 @@
 import pandas as pd
 
 from src.stages.contracts.extract_contract import ExtractContract
-from src.stages.contracts.transform_data import TransformContract
+from src.stages.contracts.transform_contract import TransformContract
 
 
 class TransformData:
@@ -29,7 +29,13 @@ class TransformData:
         sales_by_region = self._calculate_sales_by_region(sales, store)
 
         transform_contract = TransformContract(
-            sales_velocity, available_stock, sales_by_region, store=store, sales=sales, stock=stock, products=products
+            sales_velocity=sales_velocity,
+            available_stock=available_stock,
+            sales_by_region=sales_by_region,
+            store=store,
+            sales=sales,
+            stock=stock,
+            products=products,
         )
 
         return transform_contract
