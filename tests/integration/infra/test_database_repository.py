@@ -25,7 +25,7 @@ def setup_database_connection(setup_test_database):
 
 def test_create_table(setup_database_connection):
     """
-    Test the `create_table` method of `DatabaseRepository`.
+    Test the `create` method of `DatabaseRepository`.
     """
     create_table_query = """
     CREATE TABLE IF NOT EXISTS test_table (
@@ -35,7 +35,7 @@ def test_create_table(setup_database_connection):
     )
     """
 
-    DatabaseRepository.create_table(create_table_query)
+    DatabaseRepository.create(create_table_query)
 
     # Verify the table was created
     with setup_database_connection.cursor() as cursor:
@@ -55,7 +55,7 @@ def test_insert_data(setup_database_connection):
         age INTEGER NOT NULL
     )
     """
-    DatabaseRepository.create_table(create_table_query)
+    DatabaseRepository.create(create_table_query)
 
     # Prepare sample data
     data = {"name": ["Alice", "Bob", "Charlie"], "age": [25, 30, 35]}
@@ -84,7 +84,7 @@ def test_insert_data_handles_exceptions(setup_database_connection):
         age INTEGER NOT NULL
     )
     """
-    DatabaseRepository.create_table(create_table_query)
+    DatabaseRepository.create(create_table_query)
 
     # Prepare um DataFrame inválido
     data = {"name": ["Alice", "Bob", "Charlie"]}  # Coluna 'age' ausente

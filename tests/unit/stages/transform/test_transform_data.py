@@ -96,12 +96,7 @@ def test_transform_success():
     assert not result.sales_by_region.empty
     assert result.store.equals(store_df)
     assert result.sales.equals(sales_df)
-
-    # Validate stock transformations
-    expected_stock_df = stock_df.copy()
-    expected_stock_df["ESTOQUE_DISPONIVEL"] = expected_stock_df["TOTAL"] - expected_stock_df["TRANSITO"]
-
-    pd.testing.assert_frame_equal(result.stock, expected_stock_df, check_dtype=False)
+    assert result.stock.equals(stock_df)
 
 
 def test_clean_data():

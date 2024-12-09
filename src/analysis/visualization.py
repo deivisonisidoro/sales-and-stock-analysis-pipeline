@@ -28,11 +28,11 @@ class SalesVisualizer:
         Args:
             load_contract (LoadContract): Contrato contendo os dados de vendas.
         """
-        self.__plot_sales_by_region(load_contract.sales_by_region)
-        self.__plot_sales_velocity(load_contract.sales_velocity)
-        self.__plot_sales_by_group(load_contract.sales)
+        self.plot_sales_by_region(load_contract.sales_by_region)
+        self.plot_sales_velocity(load_contract.sales_velocity)
+        self.plot_sales_by_group(load_contract.sales)
 
-    def __plot_sales_by_region(self, sales_by_region: DataFrame) -> None:
+    def plot_sales_by_region(self, sales_by_region: DataFrame) -> None:
         """
         Visualiza e salva gráficos de vendas por região.
 
@@ -73,7 +73,7 @@ class SalesVisualizer:
         plt.savefig(os.path.join(self.output_directory, "top_10_regioes_com_menos_vendas.png"))
         plt.close()
 
-    def __plot_sales_velocity(self, sales_velocity: DataFrame) -> None:
+    def plot_sales_velocity(self, sales_velocity: DataFrame) -> None:
         """
         Visualiza e salva os 10 principais produtos por velocidade de venda.
 
@@ -101,7 +101,7 @@ class SalesVisualizer:
         plt.savefig(os.path.join(self.output_directory, "top_10_produtos_maior_velocidade_venda.png"))
         plt.close()
 
-    def __plot_sales_by_group(self, vendas_df: DataFrame) -> None:
+    def plot_sales_by_group(self, vendas_df: DataFrame) -> None:
         """
         Visualiza e salva gráficos de vendas por produto e filial.
 

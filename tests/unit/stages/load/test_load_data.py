@@ -79,13 +79,10 @@ def test_load_data_success(mock_repository, mocker: pytest_mock.MockerFixture):
 
     load_data = LoadData(repository=mock_repository)
 
-    # Executa o método
     load_data.load(data)
 
-    # Verifica se o método create_table foi chamado
-    mock_repository.create_table.assert_called()
+    mock_repository.create.assert_called()
 
-    # Verifica se insert_data foi chamado com os argumentos corretos
     mock_repository.insert_data.assert_any_call(dataframe=mocker.ANY, table_name="available_stock")
 
 
@@ -159,14 +156,14 @@ def test_load_data_failure(mock_repository):
     with pytest.raises(LoadError, match="Erro ao inserir dados"):
         load_data.load(data)
 
-    mock_repository.create_table.assert_called()
+    mock_repository.create.assert_called()
     mock_repository.insert_data.assert_called_once()
 
 
 def test_load_data_table_creation_failure(mock_repository):
     """Testa o método load quando ocorre uma falha ao criar a tabela."""
 
-    mock_repository.create_table.side_effect = LoadError(message="Erro ao criar tabela")
+    mock_repository.create.side_effect = LoadError(message="Erro ao criar tabela")
 
     data = TransformContract(
         sales=pd.DataFrame(
@@ -233,7 +230,7 @@ def test_load_data_table_creation_failure(mock_repository):
     with pytest.raises(LoadError, match="Erro ao criar tabela"):
         load_data.load(data)
 
-    mock_repository.create_table.assert_called_once()
+    mock_repository.create.assert_called_once()
 
 
 def test_load_data_invalid_data(mock_repository):

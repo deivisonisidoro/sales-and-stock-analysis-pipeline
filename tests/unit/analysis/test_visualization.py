@@ -13,8 +13,8 @@ def mock_sales_data() -> DataFrame:
     """Fixture que retorna um DataFrame com dados simulados de vendas."""
     return DataFrame(
         {
-            "CIDADE": ["Cidade1", "Cidade2", "Cidade3"],
-            "VENDA_PECAS": [100, 200, 150],
+            "cidade": ["Cidade1", "Cidade2", "Cidade3"],
+            "venda_pecas": [100, 200, 150],
         }
     )
 
@@ -57,9 +57,9 @@ def test_plot_sales_velocity(visualizer: SalesVisualizer, mocker: pytest_mock.Mo
     """Teste para a função plot_sales_velocity, verificando se o gráfico é gerado corretamente."""
     velocity_data = DataFrame(
         {
-            "PRODUTO": ["Produto1", "Produto2", "Produto3"],
-            "COR_PRODUTO": ["Cor1", "Cor2", "Cor3"],
-            "VELOCIDADE_VENDA": [5.5, 8.2, 7.1],
+            "produto": ["Produto1", "Produto2", "Produto3"],
+            "cor_produto": ["Cor1", "Cor2", "Cor3"],
+            "velocidade_venda": [5.5, 8.2, 7.1],
         }
     )
 
@@ -70,22 +70,15 @@ def test_plot_sales_velocity(visualizer: SalesVisualizer, mocker: pytest_mock.Mo
 
 def test_plot_sales_by_group(visualizer: SalesVisualizer, mocker: pytest_mock.MockerFixture) -> None:
     """Teste para a função plot_sales_by_group, verificando se o gráfico de vendas por grupo é gerado."""
-    sales_data = DataFrame(
+    sales_df = DataFrame(
         {
-            "PRODUTO": ["Produto1", "Produto2", "Produto3"],
-            "VENDA_PECAS": [100, 200, 150],
-        }
-    )
-
-    vendas_df = DataFrame(
-        {
-            "PRODUTO": ["Produto1", "Produto2", "Produto3"],
-            "VENDA_PECAS": [100, 200, 150],
-            "ID_FILIAL": [1, 2, 3],
+            "produto": ["Produto1", "Produto2", "Produto3"],
+            "venda_pecas": [100, 200, 150],
+            "id_filial": [1, 2, 3],
         }
     )
 
     mock_savefig = mocker.patch("matplotlib.pyplot.savefig")
-    visualizer.plot_sales_by_group(sales_data, vendas_df)
+    visualizer.plot_sales_by_group(sales_df)
     mock_savefig.assert_any_call(os.path.join("test_graphs", "vendas_por_produto.png"))
     mock_savefig.assert_any_call(os.path.join("test_graphs", "vendas_por_filial.png"))

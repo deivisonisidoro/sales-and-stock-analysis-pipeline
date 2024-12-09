@@ -22,7 +22,7 @@ class TransformData:
         products = self._clean_data(extract_contract.products)
         store = self._clean_data(extract_contract.store)
 
-        available_stock = self._calculate_available_stock(stock.copy())
+        available_stock = self._calculate_available_stock(stock)
 
         sales_velocity = self._calculate_sales_velocity(sales, available_stock)
 
@@ -80,8 +80,13 @@ class TransformData:
         Returns:
             pd.DataFrame: DataFrame transformado com o estoque disponível.
         """
-        stock_df["ESTOQUE_DISPONIVEL"] = stock_df["TOTAL"] - stock_df["TRANSITO"]
-        aggregated_df = stock_df.groupby(["PRODUTO", "COR_PRODUTO"]).agg({"ESTOQUE_DISPONIVEL": "sum"}).reset_index()
+        # Cria uma cópia do DataFrame para não modificar o original
+        stock_copy = stock_df.copy()
+
+        # Realiza a modificação na cópia
+        stock_copy["ESTOQUE_DISPONIVEL"] = stock_copy["TOTAL"] - stock_copy["TRANSITO"]
+        aggregated_df = stock_copy.groupby(["PRODUTO", "COR_PRODUTO"]).agg({"ESTOQUE_DISPONIVEL": "sum"}).reset_index()
+
         return aggregated_df
 
     def _calculate_sales_by_region(self, sales_df: pd.DataFrame, store_df: pd.DataFrame) -> pd.DataFrame:
