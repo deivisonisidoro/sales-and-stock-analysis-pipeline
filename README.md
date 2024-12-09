@@ -78,46 +78,44 @@ Para rodar o pipeline, execute o seguinte comando:
 poetry run python run.py
 ```
 
-Isso vai executar o pipeline completo: extração dos dados, transformação, carga no banco de dados e visualização dos resultados.
+Isso vai executar o pipeline completo: extração dos dados, transformação, carga no banco de dados e visualização dos resultados.  
 
-### 7. Executar os Testes
+Após a execução do pipeline, será criada uma pasta chamada `graphs` no diretório principal do projeto. Essa pasta conterá os gráficos gerados com as análises dos dados, como vendas por região, velocidade de vendas e outros insights.
 
-Para rodar os testes, você pode usar o seguinte comando:
+## Testes
+
+### Testes Unitários
+
+Os testes unitários estão localizados na pasta `tests/unit`. Para executá-los, use o comando:
+
+```bash
+poetry run pytest tests/unit
+```
+
+Esses testes verificam o funcionamento individual de componentes isolados do sistema.
+
+### Testes de Integração
+
+Os testes de integração estão localizados na pasta `tests/integration`. Esses testes verificam como os componentes funcionam juntos. Antes de rodar os testes de integração, você precisa configurar o banco de dados de teste:
+
+1. **Inicie o banco de dados de teste com Docker Compose:**
+
+```bash
+docker-compose up -d
+```
+
+2. **Crie e configure o arquivo `.env` para os testes de integração, com base no arquivo `.env.example`. Certifique-se de preencher todas as informações necessárias.**
+
+3. **Execute os testes de integração:**
+
+```bash
+poetry run pytest tests/integration
+```
+
+### Executar Todos os Testes
+
+Para rodar todos os testes (unitários e de integração), use:
 
 ```bash
 poetry run pytest
-```
-
-## Estrutura do Projeto
-
-A estrutura do projeto segue o padrão de um pipeline de dados, com as seguintes pastas e arquivos principais:
-
-```
-├── src/
-│   ├── analysis/
-│   │   ├── visualize.py          # Visualização de dados de vendas
-│   ├── driver/
-│   │   ├── dataloader.py        # Carregamento dos dados
-│   ├── stages/
-│   │   ├── extract/
-│   │   │   ├── extract_data.py  # Extração de dados
-│   │   ├── load/
-│   │   │   ├── load_data.py     # Carga de dados no banco
-│   │   ├── transform/
-│   │   │   ├── data_cleaner.py  # Limpeza dos dados
-│   │   │   ├── sales_transform.py # Transformações de vendas
-│   │   │   ├── stock_transformer.py # Transformações de estoque
-│   ├── infra/
-│   │   ├── database_connector.py # Conexão com o banco de dados
-│   │   ├── database_repository.py # Repositório de dados
-│   ├── errors/
-│   │   ├── extract_error.py      # Erros relacionados à extração
-│   │   ├── load_error.py         # Erros relacionados à carga
-│   │   ├── transform_error.py    # Erros relacionados à transformação
-│   ├── config/
-│   │   ├── settings.py           # Configurações do projeto
-│   ├── main_pipeline.py          # Arquivo principal para rodar o pipeline
-└── docker-compose.yml            # Configuração do Docker Compose para o banco de dados
-└── pyproject.toml               # Configuração do Poetry
-└── .env                         # Arquivo de variáveis de ambiente
 ```
