@@ -18,5 +18,7 @@ class AnalyzeContract:
     """
 
     sales_velocity: pd.DataFrame
-    sales_by_region: pd.DataFrame
-    sales: pd.DataFrame
+    sales_by_product: pd.DataFrame
+    sales_by_branch: pd.DataFrame
+    top_10_sales_by_region: pd.DataFrame
+    top_10_least_sales_by_region: pd.DataFrame

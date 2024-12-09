@@ -15,8 +15,6 @@ class SalesByRegionVisualizer:
         Args:
             sales_by_region (DataFrame): Dados agregados de vendas agrupados por região.
         """
-        # Ordenar regiões pelo total de vendas (decrescente)
-        sales_by_region = sales_by_region.sort_values(by="venda_pecas", ascending=False)
 
         plt.figure(figsize=(10, 6))
         plt.bar(
@@ -39,8 +37,6 @@ class SalesByRegionVisualizer:
         Args:
             sales_by_region (DataFrame): Dados agregados de vendas agrupados por região.
         """
-        # Ordenar regiões pelo total de vendas (crescente)
-        sales_by_region = sales_by_region.sort_values(by="venda_pecas", ascending=True)
 
         plt.figure(figsize=(10, 6))
         plt.bar(

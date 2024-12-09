@@ -34,8 +34,8 @@ class ReportsVisualizer(ReportsVisualizerInterface):
         Args:
             analyze_contract (AnalyzeContract): Contrato contendo os dados para gerar os relatórios.
         """
-        self.sales_by_region_visualizer.plot_top_10_sales_by_region(analyze_contract.sales_by_region)
-        self.sales_by_region_visualizer.plot_top_10_least_sales_by_region(analyze_contract.sales_by_region)
+        self.sales_by_region_visualizer.plot_top_10_sales_by_region(analyze_contract.top_10_sales_by_region)
+        self.sales_by_region_visualizer.plot_top_10_least_sales_by_region(analyze_contract.top_10_least_sales_by_region)
         self.sales_velocity_visualizer.plot_sales_velocity(analyze_contract.sales_velocity)
-        self.sales_by_group_visualizer.plot_sales_by_product(analyze_contract.sales)
-        self.sales_by_group_visualizer.plot_sales_by_branch(analyze_contract.sales)
+        self.sales_by_group_visualizer.plot_sales_by_product(analyze_contract.sales_by_product)
+        self.sales_by_group_visualizer.plot_sales_by_branch(analyze_contract.sales_by_branch)

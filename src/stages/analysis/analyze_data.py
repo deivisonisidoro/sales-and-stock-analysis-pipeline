@@ -25,19 +25,37 @@ class AnalyzeData:
         com os dados adquiridos e passa esse contrato para o visualizador responsável pela
         criação dos gráficos e visualizações.
         """
+        sales_by_product = self.__read_query_from_file("sales_by_product.sql")
+        sales_by_branch = self.__read_query_from_file("sales_by_branch.sql")
+        top_10_sales_by_region = self.__read_query_from_file("top_10_sales_by_region.sql")
+        top_10_least_sales_by_region = self.__read_query_from_file("top_10_least_sales_by_region.sql")
         sales_velocity_query = self.__read_query_from_file("sales_velocity.sql")
-        sales_by_region_query = self.__read_query_from_file("sales_by_region.sql")
-        sales_query = self.__read_query_from_file("sales.sql")
 
-        if not all([sales_velocity_query, sales_by_region_query, sales_query]):
+        if not all(
+            [
+                sales_velocity_query,
+                top_10_least_sales_by_region,
+                sales_by_product,
+                sales_by_branch,
+                top_10_sales_by_region,
+            ]
+        ):
             print("Uma ou mais consultas não foram encontradas.")
             return
 
         sales_velocity = self.__repository.find(query=sales_velocity_query)
-        sales_by_region = self.__repository.find(query=sales_by_region_query)
-        sales = self.__repository.find(query=sales_query)
+        sales_by_product = self.__repository.find(query=sales_by_product)
+        sales_by_branch = self.__repository.find(query=sales_by_branch)
+        top_10_sales_by_region = self.__repository.find(query=top_10_sales_by_region)
+        top_10_least_sales_by_region = self.__repository.find(query=top_10_least_sales_by_region)
 
-        analyze_contract = AnalyzeContract(sales_velocity=sales_velocity, sales_by_region=sales_by_region, sales=sales)
+        analyze_contract = AnalyzeContract(
+            sales_velocity=sales_velocity,
+            sales_by_product=sales_by_product,
+            sales_by_branch=sales_by_branch,
+            top_10_sales_by_region=top_10_sales_by_region,
+            top_10_least_sales_by_region=top_10_least_sales_by_region,
+        )
 
         self.__visualizer.generate_reports(analyze_contract)
 

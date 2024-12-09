@@ -15,7 +15,6 @@ class SalesVelocityVisualizer:
         Args:
             sales_velocity (DataFrame): Dados de velocidade de vendas.
         """
-        # Agrupar e ordenar por velocidade de vendas
         plt.figure(figsize=(10, 6))
         plt.bar(
             sales_velocity["produto"][:10],

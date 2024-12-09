@@ -1,4 +1,4 @@
-from src.analysis.visualization import ReportsVisualizer
+from src.analysis.visualization.reports_visualizer import ReportsVisualizer
 from src.driver.dataloader import DataLoader
 from src.infra.database_connector import DatabaseConnection
 from src.infra.database_repository import DatabaseRepository
