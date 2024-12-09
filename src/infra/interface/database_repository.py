@@ -7,9 +7,9 @@ class DatabaseRepositoryInterface(ABC):
     """
     Classe base abstrata para operações de repositório de banco de dados.
 
-    Esta interface define métodos para criar tabelas no banco de dados e
-    inserir dados nas tabelas, que devem ser implementados por qualquer
-    subclasse concreta.
+    Esta interface define métodos para criar tabelas no banco de dados,
+    inserir dados e encontrar dados em tabelas, que devem ser implementados
+    por qualquer subclasse concreta.
 
     Métodos:
         create_table(query: str) -> None:
@@ -17,6 +17,9 @@ class DatabaseRepositoryInterface(ABC):
 
         insert_data(dataframe: pd.DataFrame, table_name: str) -> None:
             Insere dados de um DataFrame pandas em uma tabela do banco de dados especificada.
+
+        find(table_name: str) -> pd.DataFrame:
+            Retorna todos os registros de uma tabela específica como um DataFrame.
     """
 
     @abstractmethod
@@ -37,5 +40,18 @@ class DatabaseRepositoryInterface(ABC):
         Args:
             dataframe (pd.DataFrame): O DataFrame contendo os dados a serem inseridos.
             table_name (str): O nome da tabela no banco de dados onde os dados serão inseridos.
+        """
+        pass
+
+    @abstractmethod
+    def find(self, table_name: str) -> pd.DataFrame:
+        """
+        Retorna todos os registros de uma tabela específica como um DataFrame.
+
+        Args:
+            table_name (str): O nome da tabela no banco de dados.
+
+        Returns:
+            pd.DataFrame: Um DataFrame contendo todos os registros da tabela especificada.
         """
         pass

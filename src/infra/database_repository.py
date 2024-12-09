@@ -1,3 +1,4 @@
+import pandas as pd
 from psycopg2.extras import execute_values
 
 from .database_connector import DatabaseConnection
@@ -74,5 +75,41 @@ class DatabaseRepository(DatabaseRepositoryInterface):
             DatabaseConnection.connection.rollback()
             print(f"Erro ao carregar dados na tabela {table_name}: {e}")
             raise Exception("Erro ao carregar dados na tabela") from e
+        finally:
+            cursor.close()
+
+    def find(self, table_name: str) -> pd.DataFrame:
+        """
+        Retorna todos os registros de uma tabela específica no banco de dados PostgreSQL
+        como um pandas DataFrame.
+
+        Args:
+            table_name (str): O nome da tabela no banco de dados.
+
+        Returns:
+            pd.DataFrame: Um DataFrame contendo todos os registros da tabela especificada.
+
+        Raise:
+            Exception: Se ocorrer um erro ao buscar os dados da tabela.
+        """
+        cursor = DatabaseConnection.connection.cursor()
+        try:
+            # Executa a consulta SELECT para buscar todos os registros da tabela
+            query = f"SELECT * FROM {table_name}"
+            cursor.execute(query)
+
+            # Obtém os resultados da consulta
+            records = cursor.fetchall()
+
+            # Obtém os nomes das colunas
+            columns = [desc[0] for desc in cursor.description]
+
+            # Converte os resultados para um DataFrame
+            df = pd.DataFrame(records, columns=columns)
+
+            return df
+        except Exception as e:
+            print(f"Erro ao buscar os dados da tabela {table_name}: {e}")
+            raise Exception(f"Erro ao buscar os dados da tabela {table_name}") from e
         finally:
             cursor.close()

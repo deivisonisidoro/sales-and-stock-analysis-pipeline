@@ -3,6 +3,8 @@ import os
 import matplotlib.pyplot as plt
 from pandas import DataFrame
 
+from src.stages.contracts.load_contract import LoadContract
+
 
 class SalesVisualizer:
     """
@@ -19,21 +21,26 @@ class SalesVisualizer:
         self.output_directory = output_directory
         os.makedirs(self.output_directory, exist_ok=True)
 
-    def plot_sales_by_region(self, vendas_regiao_agg: DataFrame) -> None:
+    def analyze(self, load_contract: LoadContract):
+        self.__plot_sales_by_region(load_contract.sales_by_region)
+        self.__plot_sales_velocity(load_contract.sales_velocity)
+        self.__plot_sales_by_group(load_contract.sales)
+
+    def __plot_sales_by_region(self, sales_by_region: DataFrame) -> None:
         """
         Visualiza e salva gráficos de vendas por região.
 
         Args:
-            vendas_regiao_agg (DataFrame): Dados agregados de vendas agrupados por região.
+            sales_by_region (DataFrame): Dados agregados de vendas agrupados por região.
         """
         # Ordenar regiões pelo total de vendas (decrescente)
-        vendas_regiao_agg = vendas_regiao_agg.sort_values(by="VENDA_PECAS", ascending=False)
+        sales_by_region = sales_by_region.sort_values(by="venda_pecas", ascending=False)
 
         # Top 10 regiões com mais vendas
         plt.figure(figsize=(10, 6))
         plt.bar(
-            vendas_regiao_agg["CIDADE"][:10],
-            vendas_regiao_agg["VENDA_PECAS"][:10],
+            sales_by_region["cidade"][:10],
+            sales_by_region["venda_pecas"][:10],
             color="skyblue",
         )
         plt.title("Top 10 Regiões com Mais Vendas")
@@ -45,11 +52,11 @@ class SalesVisualizer:
         plt.close()
 
         # Top 10 regiões com menos vendas
-        vendas_regiao_agg = vendas_regiao_agg.sort_values(by="VENDA_PECAS", ascending=True)
+        sales_by_region = sales_by_region.sort_values(by="venda_pecas", ascending=True)
         plt.figure(figsize=(10, 6))
         plt.bar(
-            vendas_regiao_agg["CIDADE"][-10:],
-            vendas_regiao_agg["VENDA_PECAS"][-10:],
+            sales_by_region["cidade"][-10:],
+            sales_by_region["venda_pecas"][-10:],
             color="salmon",
         )
         plt.title("Top 10 Regiões com Menos Vendas")
@@ -60,24 +67,24 @@ class SalesVisualizer:
         plt.savefig(os.path.join(self.output_directory, "top_10_regioes_com_menos_vendas.png"))
         plt.close()
 
-    def plot_sales_velocity(self, velocity_data: DataFrame) -> None:
+    def __plot_sales_velocity(self, sales_velocity: DataFrame) -> None:
         """
         Visualiza e salva os 10 principais produtos por velocidade de venda.
 
         Args:
-            velocity_data (DataFrame): Dados de velocidade de vendas.
+            sales_velocity (DataFrame): Dados de velocidade de vendas.
         """
         # Agrupar e ordenar por velocidade de vendas
         velocity_by_product = (
-            velocity_data.groupby(["PRODUTO", "COR_PRODUTO"]).agg({"VELOCIDADE_VENDA": "mean"}).reset_index()
+            sales_velocity.groupby(["produto", "cor_produto"]).agg({"velocidade_venda": "mean"}).reset_index()
         )
-        velocity_by_product = velocity_by_product.sort_values(by="VELOCIDADE_VENDA", ascending=False)
+        velocity_by_product = velocity_by_product.sort_values(by="velocidade_venda", ascending=False)
 
         # Top 10 produtos por velocidade de vendas
         plt.figure(figsize=(10, 6))
         plt.bar(
-            velocity_by_product["PRODUTO"][:10],
-            velocity_by_product["VELOCIDADE_VENDA"][:10],
+            velocity_by_product["produto"][:10],
+            velocity_by_product["velocidade_venda"][:10],
             color="lightgreen",
         )
         plt.title("Top 10 Produtos com Maior Velocidade de Venda")
@@ -88,20 +95,19 @@ class SalesVisualizer:
         plt.savefig(os.path.join(self.output_directory, "top_10_produtos_maior_velocidade_venda.png"))
         plt.close()
 
-    def plot_sales_by_group(self, sales_data: DataFrame, vendas_df: DataFrame) -> None:
+    def __plot_sales_by_group(self, vendas_df: DataFrame) -> None:
         """
         Visualiza e salva gráficos de vendas por produto e filial.
 
         Args:
-            sales_data (DataFrame): Dados de velocidade de vendas.
             vendas_df (DataFrame): Dados de vendas.
         """
         # Vendas por produto
-        vendas_por_produto = vendas_df.groupby(["PRODUTO"]).agg({"VENDA_PECAS": "sum"}).reset_index()
+        vendas_por_produto = vendas_df.groupby(["produto"]).agg({"venda_pecas": "sum"}).reset_index()
         plt.figure(figsize=(12, 8))
         plt.bar(
-            vendas_por_produto["PRODUTO"],
-            vendas_por_produto["VENDA_PECAS"],
+            vendas_por_produto["produto"],
+            vendas_por_produto["venda_pecas"],
             color="orange",
         )
         plt.title("Vendas por Produto")
@@ -113,11 +119,11 @@ class SalesVisualizer:
         plt.close()
 
         # Vendas por filial
-        vendas_por_filial = vendas_df.groupby(["ID_FILIAL"]).agg({"VENDA_PECAS": "sum"}).reset_index()
+        vendas_por_filial = vendas_df.groupby(["id_filial"]).agg({"venda_pecas": "sum"}).reset_index()
         plt.figure(figsize=(10, 6))
         plt.bar(
-            vendas_por_filial["ID_FILIAL"],
-            vendas_por_filial["VENDA_PECAS"],
+            vendas_por_filial["id_filial"],
+            vendas_por_filial["venda_pecas"],
             color="purple",
         )
         plt.title("Vendas por Filial")

@@ -1,13 +1,11 @@
-from src.analysis.analyze_data import SalesByRegionAnalyzer
 from src.analysis.visualization import SalesVisualizer
 from src.driver.dataloader import DataLoader
 from src.infra.database_connector import DatabaseConnection
 from src.infra.database_repository import DatabaseRepository
+from src.stages.contracts.load_contract import LoadContract
 from src.stages.extract.extract_data import ExtractData
 from src.stages.load.load_data import LoadData
-from src.stages.transform.data_cleaner import DataCleaner
-from src.stages.transform.sales_transform import SalesTransformer
-from src.stages.transform.stock_transformer import StockTransformer
+from src.stages.transform.transform_data import TransformData
 
 
 class MainPipeline:
@@ -34,10 +32,10 @@ class MainPipeline:
             Nenhum
         """
         self.__extract_data = ExtractData(dataloader=DataLoader())
-        self.__sales_transform = SalesTransformer()
-        self.__stock_transform = StockTransformer()
+        self.__transform_data = TransformData()
+        self.__load_data = LoadData(repository=DatabaseRepository())
+        self.__repository = DatabaseRepository()
         self.__sales_visualizer = SalesVisualizer()
-        self.__load_data = LoadData(DatabaseRepository())
 
     def run_pipeline(self) -> None:
         """
@@ -64,21 +62,14 @@ class MainPipeline:
 
         extract_contract = self.__extract_data.extract()
 
-        estoque_disponivel = self.__stock_transform.calculate_available_stock(
-            DataCleaner.clean_data(extract_contract.data["stock"])
-        )
-        vendas = DataCleaner.clean_data(extract_contract.data["sales"])
-        velocidade_venda = self.__sales_transform.calculate_sales_velocity(vendas, estoque_disponivel)
-        vendas_por_regiao = SalesByRegionAnalyzer.calculate_sales_by_region(vendas, extract_contract.data["store"])
+        transform_contract = self.__transform_data.transform(extract_contract)
 
-        self.__load_data.load(
-            {
-                "estoque_disponivel": estoque_disponivel,
-                "velocidade_venda": velocidade_venda,
-                "vendas_por_regiao": vendas_por_regiao,
-            }
-        )
+        self.__load_data.load(transform_contract)
 
-        self.__sales_visualizer.plot_sales_by_region(vendas_por_regiao)
-        self.__sales_visualizer.plot_sales_velocity(velocidade_venda)
-        self.__sales_visualizer.plot_sales_by_group(velocidade_venda, vendas)
+        sales_velocity = self.__repository.find(table_name="sales_velocity")
+        sales_by_region = self.__repository.find(table_name="sales_by_region")
+        sales = self.__repository.find(table_name="sales")
+
+        load_contractor = LoadContract(sales_by_region=sales_by_region, sales_velocity=sales_velocity, sales=sales)
+
+        self.__sales_visualizer.analyze(load_contractor)

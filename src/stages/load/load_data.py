@@ -42,7 +42,7 @@ class LoadData:
             raise ValueError("Os dados devem ser uma instância de TransformContract.")
 
         # Verifica se algum DataFrame está vazio
-        for field in fields(TransformContract):
+        for field in fields(data):
             field_name = field.name
             field_value = getattr(data, field_name)
             if isinstance(field_value, pd.DataFrame) and field_value.empty:
@@ -64,7 +64,7 @@ class LoadData:
                 ID_FILIAL INT NOT NULL,
                 PRODUTO VARCHAR(50) NOT NULL,
                 COR_PRODUTO VARCHAR(50) NOT NULL,
-                TAMANHO CHAR(2) NOT NULL,
+                TAMANHO CHAR(50) NOT NULL,
                 TOTAL INT NOT NULL,
                 TRANSITO INT NOT NULL
             );
@@ -76,7 +76,7 @@ class LoadData:
                 LOJA VARCHAR(100) NOT NULL,
                 PONTO_VENDA_COD INT NOT NULL,
                 PONTO_VENDA VARCHAR(200) NOT NULL,
-                PUBLICO_LOJA CHAR(1) NOT NULL,
+                PUBLICO_LOJA CHAR(50) NOT NULL,
                 CANAL VARCHAR(50) NOT NULL,
                 CIDADE VARCHAR(100) NOT NULL,
                 LOJA_M2 INT NOT NULL,

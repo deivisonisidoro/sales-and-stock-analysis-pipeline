@@ -22,7 +22,7 @@ class TransformData:
         products = self._clean_data(extract_contract.products)
         store = self._clean_data(extract_contract.store)
 
-        available_stock = self._calculate_available_stock(stock)
+        available_stock = self._calculate_available_stock(stock.copy())
 
         sales_velocity = self._calculate_sales_velocity(sales, available_stock)
 
