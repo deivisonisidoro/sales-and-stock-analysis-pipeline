@@ -2,7 +2,7 @@ from unittest import mock
 
 import pytest
 
-from src.analysis.interfaces.visualization_interface import VisualizerInterface
+from src.analysis.visualization.interfaces.visualization_interface import ReportsVisualizerInterface
 from src.infra.interface.database_repository import DatabaseRepositoryInterface
 from src.stages.analysis.analyze_data import AnalyzeData
 from src.stages.contracts.analyze_contract import AnalyzeContract
@@ -10,7 +10,7 @@ from src.stages.contracts.analyze_contract import AnalyzeContract
 
 @pytest.fixture
 def mock_visualizer():
-    return mock.create_autospec(VisualizerInterface)
+    return mock.create_autospec(ReportsVisualizerInterface)
 
 
 @pytest.fixture
@@ -24,7 +24,6 @@ def analyze_data(mock_visualizer, mock_repository):
 
 
 def test_execute_analysis(analyze_data, mock_visualizer, mock_repository, mocker):
-    # Mockando a leitura dos arquivos SQL
     mocker.patch.object(
         analyze_data,
         "_AnalyzeData__read_query_from_file",
@@ -46,13 +45,13 @@ def test_execute_analysis(analyze_data, mock_visualizer, mock_repository, mocker
     mock_repository.find.assert_any_call(query="SELECT * FROM sales_by_region")
     mock_repository.find.assert_any_call(query="SELECT * FROM sales")
 
-    # Verificando se o método 'analyze' foi chamado com o contrato correto
+    # Verificando se o método 'generate_reports' foi chamado com o contrato correto
     analyze_contract = AnalyzeContract(
         sales_velocity={"velocity": 100, "product": "A"},
         sales_by_region={"region": "North", "sales": 500},
         sales={"sales_id": 1, "amount": 1000},
     )
-    mock_visualizer.analyze.assert_called_once_with(analyze_contract)
+    mock_visualizer.generate_reports.assert_called_once_with(analyze_contract)
 
 
 def test_execute_analysis_when_queries_are_not_found(analyze_data, mock_visualizer, mock_repository, mocker):
@@ -62,8 +61,8 @@ def test_execute_analysis_when_queries_are_not_found(analyze_data, mock_visualiz
     # Testa a execução sem resultados (nenhuma consulta é lida)
     analyze_data.execute_analysis()
 
-    # Verificando que o método 'analyze' não foi chamado, pois não houve dados para analisar
-    mock_visualizer.analyze.assert_not_called()
+    # Verificando que o método 'generate_reports' não foi chamado, pois não houve dados para analisar
+    mock_visualizer.generate_reports.assert_not_called()
 
     # Verificando que o repositório não foi chamado
     mock_repository.find.assert_not_called()

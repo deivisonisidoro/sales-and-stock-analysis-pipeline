@@ -1,4 +1,4 @@
-from src.analysis.visualization import SalesVisualizer
+from src.analysis.visualization import ReportsVisualizer
 from src.driver.dataloader import DataLoader
 from src.infra.database_connector import DatabaseConnection
 from src.infra.database_repository import DatabaseRepository
@@ -41,7 +41,7 @@ class MainPipeline:
         self.__extract_data = ExtractData(dataloader=DataLoader())
         self.__transform_data = TransformData()
         self.__load_data = LoadData(repository=DatabaseRepository())
-        self.__analyze_data = AnalyzeData(repository=DatabaseRepository(), visualizer=SalesVisualizer())
+        self.__analyze_data = AnalyzeData(repository=DatabaseRepository(), visualizer=ReportsVisualizer())
 
     def run_pipeline(self) -> None:
         """

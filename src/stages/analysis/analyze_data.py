@@ -1,17 +1,17 @@
 import os
 
-from src.analysis.interfaces.visualization_interface import VisualizerInterface
+from src.analysis.visualization.interfaces.visualization_interface import ReportsVisualizerInterface
 from src.infra.interface.database_repository import DatabaseRepositoryInterface
 from src.stages.contracts.analyze_contract import AnalyzeContract
 
 
 class AnalyzeData:
-    def __init__(self, visualizer: VisualizerInterface, repository: DatabaseRepositoryInterface):
+    def __init__(self, visualizer: ReportsVisualizerInterface, repository: DatabaseRepositoryInterface):
         """
         Inicializa a classe AnalyzeData.
 
         Args:
-            visualizer (VisualizerInterface): A interface para a visualização dos dados analisados.
+            visualizer (ReportsVisualizer): A interface para a visualização dos dados analisados.
             repository (DatabaseRepositoryInterface): O repositório para buscar os dados necessários para análise.
         """
         self.__visualizer = visualizer
@@ -39,7 +39,7 @@ class AnalyzeData:
 
         analyze_contract = AnalyzeContract(sales_velocity=sales_velocity, sales_by_region=sales_by_region, sales=sales)
 
-        self.__visualizer.analyze(analyze_contract)
+        self.__visualizer.generate_reports(analyze_contract)
 
     def __read_query_from_file(self, filename: str) -> str:
         """
