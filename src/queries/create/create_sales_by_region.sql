@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS sales_by_region (
+    UF VARCHAR(2),
+    CIDADE VARCHAR(255),
+    VENDA_PECAS INT
+);

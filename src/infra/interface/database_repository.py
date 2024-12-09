@@ -23,7 +23,7 @@ class DatabaseRepositoryInterface(ABC):
     """
 
     @abstractmethod
-    def create_table(self, query: str) -> None:
+    def execute_query(self, query: str) -> None:
         """
         Garante que uma tabela no banco de dados exista, executando a consulta SQL fornecida.
 

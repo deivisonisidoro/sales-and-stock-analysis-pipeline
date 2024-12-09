@@ -14,7 +14,7 @@ class DatabaseRepository(DatabaseRepositoryInterface):
     """
 
     @classmethod
-    def create_table(cls, query: str) -> None:
+    def execute_query(cls, query: str) -> None:
         """
         Cria uma tabela no banco de dados, se ela ainda não existir.
 
