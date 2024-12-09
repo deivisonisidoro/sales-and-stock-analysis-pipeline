@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from src.analysis.visualization.sales_by_region_visualizer import SalesByRegionVisualizer
+from src.driver.visualization.sales_by_region_visualizer import SalesByRegionVisualizer
 
 
 @pytest.fixture

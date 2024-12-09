@@ -2,7 +2,7 @@ from unittest import mock
 
 import pytest
 
-from src.analysis.visualization.interfaces.visualization_interface import ReportsVisualizerInterface
+from src.driver.visualization.interfaces.visualization_interface import ReportsVisualizerInterface
 from src.infra.interface.database_repository import DatabaseRepositoryInterface
 from src.stages.analysis.analyze_data import AnalyzeData
 

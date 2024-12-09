@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from src.analysis.visualization.sales_velocity_visualizer import SalesVelocityVisualizer
+from src.driver.visualization.sales_velocity_visualizer import SalesVelocityVisualizer
 
 
 @pytest.fixture

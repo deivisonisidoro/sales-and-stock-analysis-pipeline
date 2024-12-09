@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from src.analysis.visualization.sales_by_group_visualizer import SalesByGroupVisualizer
+from src.driver.visualization.sales_by_group_visualizer import SalesByGroupVisualizer
 
 
 @pytest.fixture

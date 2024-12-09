@@ -1,5 +1,5 @@
-from src.analysis.visualization.reports_visualizer import ReportsVisualizer
 from src.driver.dataloader import DataLoader
+from src.driver.visualization.reports_visualizer import ReportsVisualizer
 from src.infra.database_connector import DatabaseConnection
 from src.infra.database_repository import DatabaseRepository
 from src.stages.analysis.analyze_data import AnalyzeData
