@@ -3,7 +3,7 @@ import os
 import matplotlib.pyplot as plt
 from pandas import DataFrame
 
-from src.stages.contracts.load_contract import LoadContract
+from src.stages.contracts.analyze_contract import AnalyzeContract
 
 
 class SalesVisualizer:
@@ -21,16 +21,16 @@ class SalesVisualizer:
         self.output_directory = output_directory
         os.makedirs(self.output_directory, exist_ok=True)
 
-    def analyze(self, load_contract: LoadContract) -> None:
+    def analyze(self, analyze_contract: AnalyzeContract) -> None:
         """
-        Analisa os dados de vendas fornecidos e gera os gráficos correspondentes.
+        Analisa os dados fornecidos e gera os gráficos correspondentes.
 
         Args:
-            load_contract (LoadContract): Contrato contendo os dados de vendas.
+            analyze_contract (AnalyzeContract): Contrato contendo os dados.
         """
-        self.plot_sales_by_region(load_contract.sales_by_region)
-        self.plot_sales_velocity(load_contract.sales_velocity)
-        self.plot_sales_by_group(load_contract.sales)
+        self.plot_sales_by_region(analyze_contract.sales_by_region)
+        self.plot_sales_velocity(analyze_contract.sales_velocity)
+        self.plot_sales_by_group(analyze_contract.sales)
 
     def plot_sales_by_region(self, sales_by_region: DataFrame) -> None:
         """

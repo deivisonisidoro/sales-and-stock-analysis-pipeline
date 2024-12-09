@@ -2,7 +2,7 @@ from src.analysis.visualization import SalesVisualizer
 from src.driver.dataloader import DataLoader
 from src.infra.database_connector import DatabaseConnection
 from src.infra.database_repository import DatabaseRepository
-from src.stages.contracts.load_contract import LoadContract
+from src.stages.analysis.analyze_data import AnalyzeData
 from src.stages.extract.extract_data import ExtractData
 from src.stages.load.load_data import LoadData
 from src.stages.transform.transform_data import TransformData
@@ -41,8 +41,7 @@ class MainPipeline:
         self.__extract_data = ExtractData(dataloader=DataLoader())
         self.__transform_data = TransformData()
         self.__load_data = LoadData(repository=DatabaseRepository())
-        self.__repository = DatabaseRepository()
-        self.__sales_visualizer = SalesVisualizer()
+        self.__analyze_data = AnalyzeData(repository=DatabaseRepository(), visualizer=SalesVisualizer())
 
     def run_pipeline(self) -> None:
         """
@@ -74,10 +73,4 @@ class MainPipeline:
 
         self.__load_data.load(transform_contract)
 
-        sales_velocity = self.__repository.find(query="SELECT * FROM sales_velocity")
-        sales_by_region = self.__repository.find(query="SELECT * FROM sales_by_region")
-        sales = self.__repository.find(query="SELECT * FROM sales")
-
-        load_contractor = LoadContract(sales_by_region=sales_by_region, sales_velocity=sales_velocity, sales=sales)
-
-        self.__sales_visualizer.analyze(load_contractor)
+        self.__analyze_data.execute_analysis()

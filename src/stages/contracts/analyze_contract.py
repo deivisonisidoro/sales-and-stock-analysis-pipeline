@@ -4,7 +4,7 @@ import pandas as pd
 
 
 @dataclass
-class LoadContract:
+class AnalyzeContract:
     """
     Contrato de dados transformados.
 
