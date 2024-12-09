@@ -14,7 +14,7 @@ class DatabaseRepository(DatabaseRepositoryInterface):
     """
 
     @classmethod
-    def execute_query(cls, query: str) -> None:
+    def create(cls, query: str) -> None:
         """
         Cria uma tabela no banco de dados, se ela ainda não existir.
 
@@ -78,38 +78,32 @@ class DatabaseRepository(DatabaseRepositoryInterface):
         finally:
             cursor.close()
 
-    def find(self, table_name: str) -> pd.DataFrame:
+    def find(self, query: str) -> pd.DataFrame:
         """
-        Retorna todos os registros de uma tabela específica no banco de dados PostgreSQL
-        como um pandas DataFrame.
+        Executa uma consulta SQL e retorna os registros resultantes como um DataFrame pandas.
+
+        Este método é flexível e pode ser usado para:
+            - Recuperar todos os registros de uma tabela específica.
+            - Executar consultas SQL mais complexas para gerar relatórios personalizados.
 
         Args:
-            table_name (str): O nome da tabela no banco de dados.
+            query (str): A consulta SQL a ser executada. Pode ser uma consulta simples
+            (e.g., `SELECT * FROM table_name`) ou uma consulta mais elaborada para relatórios.
 
         Returns:
-            pd.DataFrame: Um DataFrame contendo todos os registros da tabela especificada.
+            pd.DataFrame: Um DataFrame contendo os registros retornados pela consulta.
 
-        Raise:
-            Exception: Se ocorrer um erro ao buscar os dados da tabela.
+        Raises:
+            Exception: Se ocorrer algum erro durante a execução da consulta.
         """
         cursor = DatabaseConnection.connection.cursor()
         try:
-            # Executa a consulta SELECT para buscar todos os registros da tabela
-            query = f"SELECT * FROM {table_name}"
             cursor.execute(query)
-
-            # Obtém os resultados da consulta
             records = cursor.fetchall()
-
-            # Obtém os nomes das colunas
             columns = [desc[0] for desc in cursor.description]
-
-            # Converte os resultados para um DataFrame
             df = pd.DataFrame(records, columns=columns)
-
             return df
         except Exception as e:
-            print(f"Erro ao buscar os dados da tabela {table_name}: {e}")
-            raise Exception(f"Erro ao buscar os dados da tabela {table_name}") from e
+            raise Exception(f"Erro ao executar a consulta SQL: {e}") from e
         finally:
             cursor.close()

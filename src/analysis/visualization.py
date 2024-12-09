@@ -21,7 +21,13 @@ class SalesVisualizer:
         self.output_directory = output_directory
         os.makedirs(self.output_directory, exist_ok=True)
 
-    def analyze(self, load_contract: LoadContract):
+    def analyze(self, load_contract: LoadContract) -> None:
+        """
+        Analisa os dados de vendas fornecidos e gera os gráficos correspondentes.
+
+        Args:
+            load_contract (LoadContract): Contrato contendo os dados de vendas.
+        """
         self.__plot_sales_by_region(load_contract.sales_by_region)
         self.__plot_sales_velocity(load_contract.sales_velocity)
         self.__plot_sales_by_group(load_contract.sales)

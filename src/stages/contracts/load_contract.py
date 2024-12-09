@@ -5,15 +5,16 @@ import pandas as pd
 
 @dataclass
 class LoadContract:
-    """Contrato de dados transformados.
+    """
+    Contrato de dados transformados.
 
-    Contém os dados transformados de velocidade de vendas, estoque disponível
-    e vendas por região.
+    Esta classe contém os dados que foram transformados e estão prontos para serem carregados no banco de dados.
+    Os dados incluem informações sobre a velocidade de vendas, estoque disponível e vendas por região.
 
     Attributes:
-        sales_velocity (pd.DataFrame): Dados de velocidade de vendas transformados.
-        available_stock (pd.DataFrame): Dados de estoque disponível transformados.
-        sales_by_region (pd.DataFrame): Dados de vendas agregados por região.
+        sales_velocity (pd.DataFrame): Dados transformados que indicam a velocidade de vendas.
+        sales_by_region (pd.DataFrame): Dados transformados sobre as vendas agregadas por região.
+        sales (pd.DataFrame): Dados de vendas transformados, que contêm informações detalhadas sobre vendas realizadas.
     """
 
     sales_velocity: pd.DataFrame
