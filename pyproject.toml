@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Deivison isidoro <deivisonisidoro@gmail.com>"]
 readme = "README.md"
+packages = [{include = "grupo-soma-test", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -25,6 +26,10 @@ black = "^24.10.0"
 flake8 = "^7.1.1"
 isort = "^5.13.2"
 pre-commit = "^4.0.1"
+mkdocs = "^1.6.1"
+mkdocs-material = "^9.5.48"
+mkdocstrings-python = "^1.12.2"
+mkdocs-diagrams = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]
